@@ -12,4 +12,7 @@ meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Devel-OptreeDiff
-version: 2.1
+requires:
+  Algorithm::Diff: 0
+  B::Utils: 0
+version: 2.2

@@ -19,8 +19,11 @@ my %WriteMakefileArgs = (
   'EXE_FILES' => [],
   'LICENSE' => 'perl',
   'NAME' => 'Devel::OptreeDiff',
-  'PREREQ_PM' => {},
-  'VERSION' => '2.1',
+  'PREREQ_PM' => {
+    'Algorithm::Diff' => '0',
+    'B::Utils' => '0'
+  },
+  'VERSION' => '2.2',
   'test' => {
     'TESTS' => 't/*.t'
   }
