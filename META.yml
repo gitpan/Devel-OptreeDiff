@@ -15,4 +15,4 @@ name: Devel-OptreeDiff
 requires:
   Algorithm::Diff: 0
   B::Utils: 0
-version: 2.2
+version: 2.3

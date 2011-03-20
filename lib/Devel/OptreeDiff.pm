@@ -1,4 +1,7 @@
 package Devel::OptreeDiff;
+BEGIN {
+  $Devel::OptreeDiff::VERSION = '2.3';
+}
 use strict;
 use warnings;
 use base 'Exporter';
