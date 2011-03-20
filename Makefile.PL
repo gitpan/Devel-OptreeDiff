@@ -1,13 +1,49 @@
-use 5.008002;
-use ExtUtils::MakeMaker;
-WriteMakefile(
-    NAME         => 'Devel::OptreeDiff',
-    VERSION_FROM => 'lib/Devel/OptreeDiff.pm',
-    PREREQ_PM    => {
-        Algorithm::Diff => 0,
-        B               => 0,
-        B::Utils        => 0
-    },
-    ABSTRACT_FROM => 'lib/Devel/OptreeDiff.pm',
-    AUTHOR        => 'Joshua b. Jore <josh@grenekatz.org>'
+
+use strict;
+use warnings;
+
+
+
+use ExtUtils::MakeMaker 6.31;
+
+
+
+my %WriteMakefileArgs = (
+  'ABSTRACT' => 'Produces diffs of optrees',
+  'AUTHOR' => 'Josh Jore <jjore@cpan.org>',
+  'BUILD_REQUIRES' => {},
+  'CONFIGURE_REQUIRES' => {
+    'ExtUtils::MakeMaker' => '6.31'
+  },
+  'DISTNAME' => 'Devel-OptreeDiff',
+  'EXE_FILES' => [],
+  'LICENSE' => 'perl',
+  'NAME' => 'Devel::OptreeDiff',
+  'PREREQ_PM' => {},
+  'VERSION' => '2.1',
+  'test' => {
+    'TESTS' => 't/*.t'
+  }
 );
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
+
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
+

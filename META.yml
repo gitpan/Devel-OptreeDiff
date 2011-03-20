@@ -1,16 +1,15 @@
---- #YAML:1.0
-name:                Devel-OptreeDiff
-version:             2.0
-abstract:            Produces diffs of optrees
-license:             ~
-author:              
-    - Joshua b. Jore <josh@grenekatz.org>
-generated_by:        ExtUtils::MakeMaker version 6.42
-distribution_type:   module
-requires:     
-    Algorithm::Diff:               0
-    B:                             0
-    B::Utils:                      0
+---
+abstract: 'Produces diffs of optrees'
+author:
+  - 'Josh Jore <jjore@cpan.org>'
+build_requires: {}
+configure_requires:
+  ExtUtils::MakeMaker: 6.31
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.200000, CPAN::Meta::Converter version 2.102400'
+license: perl
 meta-spec:
-    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
-    version: 1.3
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Devel-OptreeDiff
+version: 2.1
